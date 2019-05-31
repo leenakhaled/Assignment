@@ -2,6 +2,9 @@ package com.example.asalassignment.photos.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +20,11 @@ import java.util.List;
 public class CustomAdapter extends BaseAdapter {
     private List<PhotosData> photosData;
     private LayoutInflater inflter;
-    public CustomAdapter(Context applicationContext, List<PhotosData> logos) {
-        this.photosData = logos;
+    FragmentManager fragmentManager;
 
+    public CustomAdapter(Context applicationContext, FragmentManager fragmentManager, List<PhotosData> logos) {
+        this.photosData = logos;
+        this.fragmentManager=fragmentManager;
         inflter = (LayoutInflater.from(applicationContext));
     }
     @Override
@@ -41,6 +46,19 @@ public class CustomAdapter extends BaseAdapter {
         view = inflter.inflate(R.layout.albuims, null); // inflate the layout
         ImageView icon = (ImageView) view.findViewById(R.id.imageView); // get the reference of ImageView
        //icon.setImageResource(logos.get(i).getThumbnailUrl()); // set logo images
+        icon.setOnClickListener(new View.OnClickListener() {
+            //@Override
+            public void onClick(View v) {
+//              Log.v("lorfr", " click");
+//                PhotosFragment newGamefragment = new PhotosFragment();
+//                FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
+//                fragmentTransaction.add(R.id.albums_fragment, newGamefragment);
+//                fragmentTransaction.addToBackStack(null);
+//                fragmentTransaction.commit();
+
+
+            }
+        });
      //   icon.setImageResource();
         return view;
     }

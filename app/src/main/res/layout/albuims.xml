@@ -6,6 +6,8 @@
     android:orientation="vertical">
     <ImageView
         android:layout_margin="20dp"
+        android:clickable="true"
+
 
         android:id="@+id/imageView"
         android:layout_width="150dp"
@@ -13,5 +15,6 @@
         android:scaleType="fitXY"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/user"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        android:focusable="true" />
 </LinearLayout>

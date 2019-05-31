@@ -1,5 +1,7 @@
 package com.example.asalassignment.users.view;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,6 +19,7 @@ import java.util.List;
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyViewHolder> {
     private static final String TAG = UsersListAdapter.class.getSimpleName();
     private List<UsersData> usersData;
+    Context context;
 
     UsersListAdapter(List<UsersData> usersData) {
         Log.d(TAG, "UsersListAdapter: " + usersData);
@@ -27,6 +30,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.users_recycle_view, viewGroup, false);
+        this.context=viewGroup.getContext();
         return new MyViewHolder(view);
     }
 
@@ -36,7 +40,14 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
         Log.d(TAG, "USER NAME: " + movie.getUsername());
         viewHolder.usersName.setText(movie.getUsername());
         viewHolder.email.setText(movie.getEmail());
-
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsActivity.class);
+                //intent.putExtra("image", logos[position]); // put image data in Intent
+               context.startActivity(intent); // start Intent
+            }
+        });
     }
 
     @Override

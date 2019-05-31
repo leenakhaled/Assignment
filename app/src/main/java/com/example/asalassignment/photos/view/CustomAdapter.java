@@ -1,4 +1,4 @@
-package com.example.asalassignment.photos;
+package com.example.asalassignment.photos.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

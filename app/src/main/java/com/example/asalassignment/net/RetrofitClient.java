@@ -1,23 +1,23 @@
-package com.example.asalassignment.users.presenter;
+package com.example.asalassignment.net;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitClient {
+class RetrofitClient {
     private static volatile RetrofitClient sInstance = null;
-    private static final String API_ASAL = "http://jsonplaceholder.typicode.com";
+    private static final String API_PHOTOS = "http://jsonplaceholder.typicode.com";
     private Retrofit mRetrofit;
 
-    public Retrofit getRetrofit() {
+    Retrofit getRetrofit() {
         return mRetrofit;
     }
 
 
     private RetrofitClient() {
         addLoggingIntereptor();
-        mRetrofit = new Retrofit.Builder().baseUrl(API_ASAL).addConverterFactory(GsonConverterFactory.create()).client(addLoggingIntereptor().build())
+        mRetrofit = new Retrofit.Builder().baseUrl(API_PHOTOS).addConverterFactory(GsonConverterFactory.create()).client(addLoggingIntereptor().build())
                 .build();
     }
 
@@ -29,7 +29,7 @@ public class RetrofitClient {
         return httpClient;
     }
 
-    public static RetrofitClient getsInstance() {
+    static RetrofitClient getsInstance() {
         if (sInstance == null) {
             synchronized (RetrofitClient.class) {
                 if (sInstance == null) {

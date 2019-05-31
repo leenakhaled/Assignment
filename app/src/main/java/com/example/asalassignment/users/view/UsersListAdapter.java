@@ -1,4 +1,4 @@
-package com.example.asalassignment.users;
+package com.example.asalassignment.users.view;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +18,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
     private static final String TAG = UsersListAdapter.class.getSimpleName();
     private List<UsersData> usersData;
 
-    public UsersListAdapter(List<UsersData> usersData) {
+    UsersListAdapter(List<UsersData> usersData) {
         Log.d(TAG, "UsersListAdapter: " + usersData);
         this.usersData = usersData;
     }

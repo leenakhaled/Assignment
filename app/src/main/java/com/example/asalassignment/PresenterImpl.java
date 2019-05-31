@@ -1,14 +1,12 @@
-package com.example.asalassignment.users.presenter;
+package com.example.asalassignment;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.asalassignment.MainActivity;
+import com.example.asalassignment.net.PhotosUsersList;
+import com.example.asalassignment.net.Presenter;
 import com.example.asalassignment.photos.model.PhotosData;
-import com.example.asalassignment.photos.model.PhotosListImpl;
 import com.example.asalassignment.users.model.UsersData;
-import com.example.asalassignment.users.model.UsersListImpl;
-import com.example.asalassignment.users.view.UsersView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,48 +15,45 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UsersPresenterImpl implements UsersPresenter {
-    private static final String TAG = UsersPresenterImpl.class.getSimpleName();
-    private UsersListImpl usersList;
-    private PhotosListImpl photosList;
-    private List<PhotosData> photosData;
-    private List<UsersData> usersData;
+public class PresenterImpl implements Presenter {
+    private static final String TAG = PresenterImpl.class.getSimpleName();
+    private PhotosUsersList photosUsersList;
+    private List<PhotosData> photosDataResponse;
+    private List<UsersData> userDataResponse;
     private UsersView usersView;
 
     @Override
     public void initPresenter(UsersView usersView) {
-        usersList = new UsersListImpl();
-        photosList = new PhotosListImpl();
-        photosData = new ArrayList<>();
-        usersData = new ArrayList<>();
+        photosUsersList = new PhotosUsersList();
+        photosDataResponse = new ArrayList<>();
+        userDataResponse = new ArrayList<>();
         this.usersView = usersView;
         getUserData();
-           getPhotosData();
+        getPhotosData();
 
 
     }
 
     private void getPhotosData() {
-        Call<List<PhotosData>> call = photosList.getUsersList();
+        Call<List<PhotosData>> call = photosUsersList.getPhotosList();
         call.enqueue(new Callback<List<PhotosData>>() {
             @Override
-            public void onResponse(Call<List<PhotosData>> call, Response<List<PhotosData>> response) {
+            public void onResponse(@NonNull Call<List<PhotosData>> call, @NonNull Response<List<PhotosData>> response) {
                 if (response.isSuccessful()) {
                     if (response.body() == null) {
                         Log.v(TAG, "on response null");
 
                     } else {
-                        photosData = response.body();
-                        Log.v(TAG, "*******PHOTOS**************" + response.body());
+                        photosDataResponse = response.body();
                         usersView.hideProgress();
-                        usersView.initTheFragments(photosData, usersData);
+                        usersView.initTheFragments(photosDataResponse, userDataResponse);
 
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<PhotosData>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<PhotosData>> call, @NonNull Throwable t) {
                 Log.e(TAG, "onFailure: Failed ");
                 t.printStackTrace();
 
@@ -68,7 +63,7 @@ public class UsersPresenterImpl implements UsersPresenter {
     }
 
     private void getUserData() {
-        Call<List<UsersData>> call = usersList.getUsersList();
+        Call<List<UsersData>> call = photosUsersList.getUsersList();
         call.enqueue(new Callback<List<UsersData>>() {
             @Override
             public void onResponse(@NonNull Call<List<UsersData>> call, @NonNull Response<List<UsersData>> response) {
@@ -78,9 +73,7 @@ public class UsersPresenterImpl implements UsersPresenter {
 
                     } else {
                         Log.v(TAG, "Success" + response.body());
-                        usersData = response.body();
-                        // usersView.initTheFragments(photosData, response.body());
-
+                        userDataResponse = response.body();
                     }
                 }
 

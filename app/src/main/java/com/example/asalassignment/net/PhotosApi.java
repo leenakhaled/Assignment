@@ -1,4 +1,4 @@
-package com.example.asalassignment.photos.presenter;
+package com.example.asalassignment.net;
 
 import com.example.asalassignment.photos.model.PhotosData;
 import com.example.asalassignment.users.model.UsersData;

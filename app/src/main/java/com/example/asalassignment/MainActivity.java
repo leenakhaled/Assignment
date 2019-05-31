@@ -10,23 +10,23 @@ import android.widget.ProgressBar;
 import com.example.asalassignment.photos.model.PhotosData;
 import com.example.asalassignment.photos.view.PhotoFragment;
 import com.example.asalassignment.users.model.UsersData;
-import com.example.asalassignment.users.presenter.UsersPresenter;
-import com.example.asalassignment.users.presenter.UsersPresenterImpl;
+import com.example.asalassignment.net.Presenter;
 import com.example.asalassignment.users.view.UsersFragment;
-import com.example.asalassignment.users.view.UsersView;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements UsersView {
-    List<UsersData> usersData;
-    private List<PhotosData> photosData;
+    List<UsersData> userDataResponse;
+    private List<PhotosData> photosDataResponse;
     private ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        UsersPresenter usersPresenter = new UsersPresenterImpl();
-        usersPresenter.initPresenter(this);
+
+        Presenter presenter = new PresenterImpl();
+        presenter.initPresenter(this);
 
         mProgressBar = findViewById(R.id.progressBar);
         mProgressBar.setIndeterminate(true);
@@ -39,17 +39,17 @@ public class MainActivity extends AppCompatActivity implements UsersView {
 
     private ViewPager initViewPager() {
         ViewPager viewPager = findViewById(R.id.view_pager);
-        ViewPagerAdapter mTabsPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        mTabsPagerAdapter.addFragment(new UsersFragment(usersData), "Users");
-        mTabsPagerAdapter.addFragment(new PhotoFragment(photosData), "Photos");
-        viewPager.setAdapter(mTabsPagerAdapter);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPagerAdapter.addFragment(new UsersFragment(userDataResponse), "Users");
+        viewPagerAdapter.addFragment(new PhotoFragment(photosDataResponse), "Photos");
+        viewPager.setAdapter(viewPagerAdapter);
         return viewPager;
     }
 
     @Override
     public void initTheFragments(List<PhotosData> photosData, List<UsersData> usersData) {
-        this.usersData = usersData;
-        this.photosData=photosData;
+        this.userDataResponse = usersData;
+        this.photosDataResponse =photosData;
         ViewPager viewPager = initViewPager();
         initTabLayout(viewPager);
     }

@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.asalassignment.R;
-import com.example.asalassignment.users.UsersListAdapter;
 import com.example.asalassignment.users.model.UsersData;
 
 import java.util.List;

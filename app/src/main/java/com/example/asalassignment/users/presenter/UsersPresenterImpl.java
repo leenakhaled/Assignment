@@ -2,9 +2,9 @@ package com.example.asalassignment.users.presenter;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
-
 import com.example.asalassignment.users.model.UsersData;
 import com.example.asalassignment.users.model.UsersListImpl;
+import com.example.asalassignment.users.view.UsersView;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -13,10 +13,12 @@ import retrofit2.Response;
 public class UsersPresenterImpl implements UsersPresenter {
     private static final String TAG = UsersPresenterImpl.class.getSimpleName();
     private UsersListImpl usersList;
+    private UsersView usersView;
 
     @Override
-    public void initPresenter() {
+    public void initPresenter(UsersView usersView) {
         usersList = new UsersListImpl();
+        this.usersView = usersView;
         getUserData();
     }
 
@@ -30,8 +32,8 @@ public class UsersPresenterImpl implements UsersPresenter {
                         Log.v(TAG, "on response null");
 
                     } else {
-                        Log.v(TAG, "Success");
-
+                        Log.v(TAG, "Success" + response.body());
+                        usersView.initTheFragments(response.body());
                     }
                 }
 

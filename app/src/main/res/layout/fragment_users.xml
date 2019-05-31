@@ -3,17 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/users_recycle_view"
+        android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ThirdFragment">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:textColor="#1f8ce6"
-            android:textSize="75sp"
-            android:textStyle="bold" />
-    </FrameLayout>
+        android:layout_height="match_parent"/>
 </android.support.constraint.ConstraintLayout>

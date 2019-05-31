@@ -8,7 +8,7 @@ import com.example.asalassignment.photos.PhotoFragment;
 import com.example.asalassignment.users.view.UsersFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-    private String[] tabTitles = {String.valueOf(R.string.users_tabs), String.valueOf((R.string.photos_tab))};
+    private String[] tabTitles = {"Users", "Photos"};
     private static final int USER_TAB = 0;
     private static final int PHOTO_TAB = 1;
     private static final int NUMBERS_OF_TABS = 2;

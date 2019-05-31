@@ -1,4 +1,4 @@
-package com.example.asalassignment.users;
+package com.example.asalassignment.users.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

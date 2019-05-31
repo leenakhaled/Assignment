@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Asal Assignment</string>
+    <string name="users_tabs">Users</string>
+    <string name="photos_tab">Photos</string>
 </resources>

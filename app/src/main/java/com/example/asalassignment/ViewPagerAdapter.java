@@ -1,26 +1,28 @@
-package com.example.asalassignment.view;
+package com.example.asalassignment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 import com.example.asalassignment.photos.PhotoFragment;
-import com.example.asalassignment.users.UsersFragment;
+import com.example.asalassignment.users.view.UsersFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-    private String[] tabTitles = {"TAB 1","TAB 2","TAB 3"};
+    private String[] tabTitles = {String.valueOf(R.string.users_tabs), String.valueOf((R.string.photos_tab))};
+    private static final int USER_TAB = 0;
+    private static final int PHOTO_TAB = 1;
+    private static final int NUMBERS_OF_TABS = 2;
 
-    public ViewPagerAdapter(FragmentManager fragmentManager) {
+    ViewPagerAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
-            case 0:
+        switch (position) {
+            case USER_TAB:
                 return new UsersFragment();
-            case 1:
+            case PHOTO_TAB:
                 return new PhotoFragment();
 
         }
@@ -29,11 +31,11 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return NUMBERS_OF_TABS;
     }
 
     @Override
-    public CharSequence getPageTitle(int position){
+    public CharSequence getPageTitle(int position) {
         return tabTitles[position];
     }
 }

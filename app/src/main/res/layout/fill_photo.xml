@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/largePhoto"
     android:layout_width="match_parent"
-    android:layout_margin="0dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables">
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="165dp"
-        tools:srcCompat="@tools:sample/avatars" />
-</android.support.constraint.ConstraintLayout>
+        android:contentDescription="@string/todo"
+       android:src="@drawable/user"/>
+
+</LinearLayout>

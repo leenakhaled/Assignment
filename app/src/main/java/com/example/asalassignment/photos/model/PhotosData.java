@@ -4,7 +4,9 @@ package com.example.asalassignment.photos.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PhotosData {
+import java.io.Serializable;
+
+public class PhotosData implements Serializable {
 
     @SerializedName("albumId")
     @Expose

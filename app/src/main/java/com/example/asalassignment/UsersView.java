@@ -6,6 +6,6 @@ import com.example.asalassignment.users.model.UsersData;
 import java.util.List;
 
 public interface UsersView {
-    void initTheFragments(List<PhotosData> photosData, List<UsersData> body);
+    void initTheTabsInViewPager(List<PhotosData> photosData, List<UsersData> body);
     void hideProgress();
 }

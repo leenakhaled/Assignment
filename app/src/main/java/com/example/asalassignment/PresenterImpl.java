@@ -46,7 +46,7 @@ public class PresenterImpl implements Presenter {
                     } else {
                         photosDataResponse = response.body();
                         usersView.hideProgress();
-                        usersView.initTheFragments(photosDataResponse, userDataResponse);
+                        usersView.initTheTabsInViewPager(photosDataResponse, userDataResponse);
 
                     }
                 }

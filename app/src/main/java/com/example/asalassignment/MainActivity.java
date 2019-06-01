@@ -6,18 +6,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ProgressBar;
-
 import com.example.asalassignment.photos.model.PhotosData;
 import com.example.asalassignment.photos.view.AlbumFragment;
 import com.example.asalassignment.users.model.UsersData;
 import com.example.asalassignment.net.Presenter;
 import com.example.asalassignment.users.view.UsersFragment;
-
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements UsersView {
-    List<UsersData> userDataResponse;
-    private List<PhotosData> photosDataResponse;
+    List<UsersData> userDataResponse; // To send it to users fragment
+    private List<PhotosData> photosDataResponse;// To send it to photos fragment
     private ProgressBar mProgressBar;
 
     @Override
@@ -28,15 +26,13 @@ public class MainActivity extends AppCompatActivity implements UsersView {
         Presenter presenter = new PresenterImpl();
         presenter.initPresenter(this);
 
+        initProgress();
+    }
+
+    private void initProgress() {
         mProgressBar = findViewById(R.id.progressBar);
         mProgressBar.setIndeterminate(true);
     }
-
-    private void initTabLayout(ViewPager viewPager) {
-        TabLayout tabLayout = findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
-    }
-
     private ViewPager initViewPager() {
         ViewPager viewPager = findViewById(R.id.view_pager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
@@ -46,8 +42,14 @@ public class MainActivity extends AppCompatActivity implements UsersView {
         return viewPager;
     }
 
+    private void initTabLayout(ViewPager viewPager) {
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+
     @Override
-    public void initTheFragments(List<PhotosData> photosData, List<UsersData> usersData) {
+    public void initTheTabsInViewPager(List<PhotosData> photosData, List<UsersData> usersData) {
         this.userDataResponse = usersData;
         this.photosDataResponse =photosData;
         ViewPager viewPager = initViewPager();

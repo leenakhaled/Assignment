@@ -36,7 +36,7 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder viewHolder, @SuppressLint("RecyclerView") final int i) {
         UsersData usersData = this.usersData.get(i);
-        viewHolder.usersName.setText(usersData.getUsername());
+        viewHolder.usersName.setText(usersData.getName());
         viewHolder.email.setText(usersData.getEmail());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,10 +45,11 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
                 intent.putExtra("email", UsersListAdapter.this.usersData.get(i).getEmail());
                 intent.putExtra("phone", UsersListAdapter.this.usersData.get(i).getPhone());
                 intent.putExtra("name", UsersListAdapter.this.usersData.get(i).getName());
+                intent.putExtra("userName", UsersListAdapter.this.usersData.get(i).getUsername());
                 intent.putExtra("website", UsersListAdapter.this.usersData.get(i).getWebsite());
                 intent.putExtra("city", UsersListAdapter.this.usersData.get(i).getAddress().getCity());
                 intent.putExtra("street", UsersListAdapter.this.usersData.get(i).getAddress().getStreet());
-                intent.putExtra("zipCode", UsersListAdapter.this.usersData.get(i).getAddress().getZipcode());
+                intent.putExtra("suite", UsersListAdapter.this.usersData.get(i).getAddress().getSuite());
                 intent.putExtra("lat", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLat());
                 intent.putExtra("lng", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLng());
                 intent.putExtra("companyName", UsersListAdapter.this.usersData.get(i).getCompany().getName());

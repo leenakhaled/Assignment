@@ -10,32 +10,43 @@ import com.example.asalassignment.R;
 
 @SuppressLint("Registered")
 public class DetailsActivity extends AppCompatActivity {
-    TextView userName, email, website, city, street, suite, zipCode,lng,lat;
+    TextView name,userName, email, website, city, street, suite, companyName,companyBs,CompanycatchPhrase, phone,lng, lat;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        userName = findViewById(R.id.user_name);
+        name = findViewById(R.id.user_name);
         email = findViewById(R.id.email);
         website = findViewById(R.id.website);
         street = findViewById(R.id.street);
         suite = findViewById(R.id.suite);
         city = findViewById(R.id.city);
-      lng = findViewById(R.id.lng);
-      lat = findViewById(R.id.lat);
+        lng = findViewById(R.id.lng);
+        lat = findViewById(R.id.lat);
+    //    phone = findViewById(R.id.phone);
 
-        userName.setText(getIntent().getStringExtra("name"));
+        CompanycatchPhrase = findViewById(R.id.companyCathPhrase);
+        companyBs = findViewById(R.id.companyBs);
+      //  userName = findViewById(R.id.userName);
+
+        companyName = findViewById(R.id.companyName);
+        //userName.setText(getIntent().getStringExtra("userName"));
+//        phone.setText(getIntent().getStringExtra("phone"));
+
+        name.setText("" + getIntent().getStringExtra("name" )+"("+  getIntent().getStringExtra("userName")+" )");
         email.setText(getIntent().getStringExtra("email"));
-       // zipCode.setText(getIntent().getStringExtra("zipCode"));
         website.setText(getIntent().getStringExtra("website"));
         city.setText(getIntent().getStringExtra("city"));
         street.setText(getIntent().getStringExtra("street"));
         suite.setText(getIntent().getStringExtra("suite"));
         lng.setText(getIntent().getStringExtra("lng"));
-       lat.setText(getIntent().getStringExtra("lat"));
-
+        lat.setText(getIntent().getStringExtra("lat"));
+        companyName.setText(getIntent().getStringExtra("companyName"));
+        companyBs.setText(getIntent().getStringExtra("companyBs"));
+        CompanycatchPhrase.setText(getIntent().getStringExtra("companyCatchPhrase"));
 
     }
 

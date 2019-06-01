@@ -5,7 +5,7 @@ import com.example.asalassignment.users.model.UsersData;
 
 import java.util.List;
 
-public interface viewInterface {
+public interface ViewInterface {
     void initTheTabsInViewPager(List<PhotosData> photosData, List<UsersData> body);
     void hideProgress();
 }

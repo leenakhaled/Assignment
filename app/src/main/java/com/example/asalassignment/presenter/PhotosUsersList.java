@@ -8,23 +8,23 @@ import java.util.List;
 import retrofit2.Call;
 
 
-public class PhotosUsersList {
+class PhotosUsersList {
 
     private PhotosApi photosApi;
     private UsersApi usersApi;
 
-    public PhotosUsersList() {
+    PhotosUsersList() {
         photosApi = RetrofitClient.getsInstance().getRetrofit().create(PhotosApi.class);
         usersApi = RetrofitClient.getsInstance().getRetrofit().create(UsersApi.class);
 
     }
 
-    public Call<List<PhotosData>> getPhotosList() {
+    Call<List<PhotosData>> getPhotosList() {
         return photosApi.getPhotosList();
     }
 
 
-    public Call<List<UsersData>> getUsersList() {
+    Call<List<UsersData>> getUsersList() {
         return usersApi.getUsersList();
     }
 

@@ -13,8 +13,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:layout_weight="1"
         android:src="@drawable/user"
+        android:layout_weight="1"
         app:civ_shadow_radius="10" />
 
 

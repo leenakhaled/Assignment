@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.example.asalassignment.R;
 import com.example.asalassignment.photos.model.PhotosData;
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class AlbumsAdapter extends BaseAdapter {
     private List<PhotosData> photosDataResponse;
     private List<PhotosData> photosAfterFilterAccordingAlbum;
     private LayoutInflater layoutInflater;
+    private int numberOfAlbum = 0;
 
     AlbumsAdapter(Context context, List<PhotosData> photosDataResponse) {
         this.photosDataResponse = photosDataResponse;
@@ -27,7 +29,7 @@ public class AlbumsAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 100;
+        return getNumberOfAlbums();
     }
 
     @Override
@@ -40,23 +42,25 @@ public class AlbumsAdapter extends BaseAdapter {
         return 0;
     }
 
-    @SuppressLint({"ViewHolder", "InflateParams"})
+    @SuppressLint({"ViewHolder", "InflateParams", "SetTextI18n"})
     @Override
-    public View getView(final int i, View view, final ViewGroup viewGroup) {
+    public View getView(final int position, View view, final ViewGroup viewGroup) {
+        final int positionPlusOne = position + 1;
 
         view = layoutInflater.inflate(R.layout.albuim_item, null);
-        ImageView albumImage = view.findViewById(R.id.album_image);
+
+        LinearLayout album = view.findViewById(R.id.album);
+        TextView albumTitle = view.findViewById(R.id.album_title);
+        albumTitle.setText("Album " + positionPlusOne);
 
 
-        albumImage.setOnClickListener(new View.OnClickListener() {
+        album.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getAllImagesInAlbum(i + 1);
-
+                getAllImagesInAlbum(positionPlusOne);
                 Intent intent = new Intent(viewGroup.getContext(), PhotosActivity.class);
                 intent.putExtra("photos", (Serializable) photosAfterFilterAccordingAlbum);
                 viewGroup.getContext().startActivity(intent);
-
 
             }
         });
@@ -66,10 +70,19 @@ public class AlbumsAdapter extends BaseAdapter {
 
     private void getAllImagesInAlbum(int position) {
 
-        for (PhotosData item : photosDataResponse) {
-            if (item.getAlbumId() == position) {
-                photosAfterFilterAccordingAlbum.add(item);
+        for (PhotosData photosData : photosDataResponse) {
+            if (photosData.getAlbumId() == position) {
+                photosAfterFilterAccordingAlbum.add(photosData);
             }
         }
+    }
+
+    private int getNumberOfAlbums() {
+        for (PhotosData photosData : photosDataResponse) {
+            if (photosData.getAlbumId() >= numberOfAlbum) {
+                numberOfAlbum = photosData.getAlbumId();
+            }
+        }
+        return numberOfAlbum;
     }
 }

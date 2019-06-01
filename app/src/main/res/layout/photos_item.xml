@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="100dp">
+    android:minHeight="100dp"
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,25 +13,23 @@
         android:orientation="horizontal"
         tools:layout_editor_absoluteX="-92dp"
         tools:layout_editor_absoluteY="0dp">
+
         <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/photo"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:id="@+id/photo_id"
-            android:src="@drawable/user"
-            app:civ_shadow_radius="10"
-            />
+            app:civ_shadow_radius="10" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/photo_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                 />
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </LinearLayout>

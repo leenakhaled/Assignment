@@ -1,7 +1,7 @@
 package com.example.asalassignment.presenter;
 
-import com.example.asalassignment.viewInterface;
+import com.example.asalassignment.ViewInterface;
 
 public interface Presenter {
-   void  initPresenter(viewInterface usersView);
+   void  initPresenter(ViewInterface usersView);
 }

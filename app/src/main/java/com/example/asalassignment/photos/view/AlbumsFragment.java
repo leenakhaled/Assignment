@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import com.example.asalassignment.R;
 import com.example.asalassignment.photos.model.PhotosData;
+
 import java.util.List;
 
 public class AlbumsFragment extends Fragment {

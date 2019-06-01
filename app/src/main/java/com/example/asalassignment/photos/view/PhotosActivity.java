@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.asalassignment.R;
 import com.example.asalassignment.photos.model.PhotosData;
-import com.example.asalassignment.users.view.UsersListAdapter;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class PhotosActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.photos_recycle_view);
-        RecyclerView recyclerView = findViewById(R.id.users_recycle_view);
+        RecyclerView recyclerView = findViewById(R.id.photos_recycle_view);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -28,8 +27,6 @@ public class PhotosActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-
-
             PhotosAdapter usersListAdapter = new PhotosAdapter((List<PhotosData>) getIntent().getExtras().getSerializable("photos"));
             recyclerView.setAdapter(usersListAdapter);
         }

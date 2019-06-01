@@ -3,8 +3,11 @@ package com.example.asalassignment.users.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.Since;
 
-public class UsersData {
+import java.io.Serializable;
+
+public class UsersData implements Serializable {
 
     @SerializedName("id")
     @Expose

@@ -13,17 +13,17 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"  android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".users.view.DetailsActivity">
+        <activity android:name=".users.view.DetailsActivity" android:configChanges="orientation|screenSize|keyboardHidden" android:parentActivityName=".MainActivity">
 
     </activity>
-        <activity android:name=".photos.view.PhotosActivity">
+        <activity android:name=".photos.view.PhotosActivity" android:configChanges="orientation|screenSize|keyboardHidden">
 
         </activity>
         <activity android:name=".photos.view.FullPhotoActivity">

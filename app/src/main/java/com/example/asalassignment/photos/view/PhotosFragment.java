@@ -18,7 +18,7 @@ public class PhotosFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        //     inflater.inflate(R.layout.fragment_photos, container, false);
+        //     inflater.inflate(R.layout.fragment_albums, container, false);
 
         return inflater.inflate(R.layout.photos_recycle_view, container, false);
     }

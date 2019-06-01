@@ -24,6 +24,7 @@ import java.util.List;
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.MyViewHolder> {
     private static final String TAG = com.example.asalassignment.users.view.UsersListAdapter.class.getSimpleName();
     private List<PhotosData> usersData;
+
     Context context;
 
     PhotosAdapter(List<PhotosData> usersData) {

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="?android:attr/selectableItemBackground"
     android:layout_height="wrap_content"
     android:minHeight="100dp">
 
@@ -13,9 +14,10 @@
         tools:layout_editor_absoluteX="-92dp"
         tools:layout_editor_absoluteY="0dp">
         <com.mikhaellopez.circularimageview.CircularImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:id="@+id/user_image"
+            android:layout_margin="5dp"
             android:src="@drawable/user"
             app:civ_shadow_radius="10"
             />
@@ -29,14 +31,17 @@
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:textColor="@color/cardview_dark_background"
                 android:layout_height="wrap_content"
-                 />
+                tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

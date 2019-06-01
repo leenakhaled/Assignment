@@ -1,10 +1,10 @@
 package com.example.asalassignment.users.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +19,9 @@ import java.util.List;
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyViewHolder> {
     private static final String TAG = UsersListAdapter.class.getSimpleName();
     private List<UsersData> usersData;
-    Context context;
+    private Context context;
 
     UsersListAdapter(List<UsersData> usersData) {
-        Log.d(TAG, "UsersListAdapter: " + usersData);
         this.usersData = usersData;
     }
 
@@ -30,22 +29,32 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.users_recycle_view, viewGroup, false);
-        this.context=viewGroup.getContext();
+        this.context = viewGroup.getContext();
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
-        UsersData movie = usersData.get(i);
-        Log.d(TAG, "USER NAME: " + movie.getUsername());
-        viewHolder.usersName.setText(movie.getUsername());
-        viewHolder.email.setText(movie.getEmail());
+    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, @SuppressLint("RecyclerView") final int i) {
+        UsersData usersData = this.usersData.get(i);
+        viewHolder.usersName.setText(usersData.getUsername());
+        viewHolder.email.setText(usersData.getEmail());
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailsActivity.class);
-                //intent.putExtra("image", logos[position]); // put image data in Intent
-               context.startActivity(intent); // start Intent
+                intent.putExtra("email", UsersListAdapter.this.usersData.get(i).getEmail());
+                intent.putExtra("phone", UsersListAdapter.this.usersData.get(i).getPhone());
+                intent.putExtra("name", UsersListAdapter.this.usersData.get(i).getName());
+                intent.putExtra("website", UsersListAdapter.this.usersData.get(i).getWebsite());
+                intent.putExtra("city", UsersListAdapter.this.usersData.get(i).getAddress().getCity());
+                intent.putExtra("street", UsersListAdapter.this.usersData.get(i).getAddress().getStreet());
+                intent.putExtra("zipCode", UsersListAdapter.this.usersData.get(i).getAddress().getZipcode());
+                intent.putExtra("lat", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLat());
+                intent.putExtra("lng", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLng());
+                intent.putExtra("companyName", UsersListAdapter.this.usersData.get(i).getCompany().getName());
+                intent.putExtra("companyCatchPhrase", UsersListAdapter.this.usersData.get(i).getCompany().getCatchPhrase());
+                intent.putExtra("companyBs", UsersListAdapter.this.usersData.get(i).getCompany().getBs());
+                context.startActivity(intent);
             }
         });
     }

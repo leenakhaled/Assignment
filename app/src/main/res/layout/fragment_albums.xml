@@ -2,16 +2,17 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/albums_fragment"
+    android:layout_margin="15dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <GridView
-        android:id="@+id/albums"
+        android:id="@+id/album"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"
-        android:numColumns="3"
-        android:horizontalSpacing="20dp"
+        android:numColumns="2"
+        android:horizontalSpacing="5dp"
         tools:ignore="MissingConstraints" />
 </android.support.constraint.ConstraintLayout>

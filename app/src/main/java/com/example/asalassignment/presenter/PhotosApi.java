@@ -1,7 +1,6 @@
-package com.example.asalassignment.net;
+package com.example.asalassignment.presenter;
 
 import com.example.asalassignment.photos.model.PhotosData;
-import com.example.asalassignment.users.model.UsersData;
 
 import java.util.List;
 

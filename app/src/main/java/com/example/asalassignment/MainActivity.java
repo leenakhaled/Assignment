@@ -7,9 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ProgressBar;
 import com.example.asalassignment.photos.model.PhotosData;
-import com.example.asalassignment.photos.view.AlbumFragment;
+import com.example.asalassignment.photos.view.AlbumsFragment;
 import com.example.asalassignment.users.model.UsersData;
-import com.example.asalassignment.net.Presenter;
+import com.example.asalassignment.presenter.Presenter;
 import com.example.asalassignment.users.view.UsersFragment;
 import java.util.List;
 
@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements UsersView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Presenter presenter = new PresenterImpl();
         presenter.initPresenter(this);
 
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements UsersView {
         ViewPager viewPager = findViewById(R.id.view_pager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new UsersFragment(userDataResponse), "Users");
-        viewPagerAdapter.addFragment(new AlbumFragment(photosDataResponse), "Photos");
+        viewPagerAdapter.addFragment(new AlbumsFragment(photosDataResponse), "Photos");
         viewPager.setAdapter(viewPagerAdapter);
         return viewPager;
     }

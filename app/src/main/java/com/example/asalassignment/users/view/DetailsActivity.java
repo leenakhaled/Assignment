@@ -10,7 +10,7 @@ import com.example.asalassignment.R;
 
 @SuppressLint("Registered")
 public class DetailsActivity extends AppCompatActivity {
-    TextView name, email, website, city, street, suite, companyName, companyBs, CompanycatchPhrase, lng, lat;
+    TextView name, email, website, city, street, suite, companyName, companyBs, companyCatchPhrase, lng, lat;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -31,7 +31,7 @@ public class DetailsActivity extends AppCompatActivity {
         city = findViewById(R.id.city);
         lng = findViewById(R.id.lng);
         lat = findViewById(R.id.lat);
-        CompanycatchPhrase = findViewById(R.id.companyCathPhrase);
+        companyCatchPhrase = findViewById(R.id.companyCathPhrase);
         companyBs = findViewById(R.id.companyBs);
         companyName = findViewById(R.id.companyName);
     }
@@ -48,7 +48,7 @@ public class DetailsActivity extends AppCompatActivity {
         lat.setText(getIntent().getStringExtra("lat"));
         companyName.setText(getIntent().getStringExtra("companyName"));
         companyBs.setText(getIntent().getStringExtra("companyBs"));
-        CompanycatchPhrase.setText(getIntent().getStringExtra("companyCatchPhrase"));
+        companyCatchPhrase.setText(getIntent().getStringExtra("companyCatchPhrase"));
     }
 
 

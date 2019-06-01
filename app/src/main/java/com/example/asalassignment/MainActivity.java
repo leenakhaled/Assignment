@@ -16,7 +16,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ViewInterface {
     List<UsersData> userDataResponse; // To send it to users fragment
-    private List<PhotosData> photosDataResponse;// To send it to photos fragment
+    private List<PhotosData> mPhotosDataResponse;// To send it to photos fragment
     private ProgressBar mProgressBar;
 
     @Override
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements ViewInterface {
         ViewPager viewPager = findViewById(R.id.view_pager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPagerAdapter.addFragment(new UsersFragment(userDataResponse), "Users");
-        viewPagerAdapter.addFragment(new AlbumsFragment(photosDataResponse), "Photos");
+        viewPagerAdapter.addFragment(new AlbumsFragment(mPhotosDataResponse), "Photos");
         viewPager.setAdapter(viewPagerAdapter);
         return viewPager;
     }
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements ViewInterface {
     @Override
     public void initTheTabsInViewPager(List<PhotosData> photosData, List<UsersData> usersData) {
         this.userDataResponse = usersData;
-        this.photosDataResponse =photosData;
+        this.mPhotosDataResponse =photosData;
         ViewPager viewPager = initViewPager();
         initTabLayout(viewPager);
     }

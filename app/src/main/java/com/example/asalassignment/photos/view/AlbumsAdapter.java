@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlbumsAdapter extends BaseAdapter {
-    private List<PhotosData> photosDataResponse;
-    private List<PhotosData> photosAfterFilterAccordingAlbum;
-    private LayoutInflater layoutInflater;
-    private int numberOfAlbum = 0;
+    private List<PhotosData> mPhotosDataResponse;
+    private List<PhotosData> mPhotosAfterFilterAccordingAlbum;
+    private LayoutInflater mLayoutInflater;
+    private int mNumberOfAlbum = 0;
 
     AlbumsAdapter(Context context, List<PhotosData> photosDataResponse) {
-        this.photosDataResponse = photosDataResponse;
-        photosAfterFilterAccordingAlbum = new ArrayList<>();
-        layoutInflater = (LayoutInflater.from(context));
+       mPhotosDataResponse = photosDataResponse;
+        mPhotosAfterFilterAccordingAlbum = new ArrayList<>();
+        mLayoutInflater = (LayoutInflater.from(context));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class AlbumsAdapter extends BaseAdapter {
     public View getView(final int position, View view, final ViewGroup viewGroup) {
         final int positionPlusOne = position + 1;
 
-        view = layoutInflater.inflate(R.layout.albuim_item, null);
+        view = mLayoutInflater.inflate(R.layout.albuim_item, null);
 
         LinearLayout album = view.findViewById(R.id.album);
         TextView albumTitle = view.findViewById(R.id.album_title);
@@ -59,7 +59,7 @@ public class AlbumsAdapter extends BaseAdapter {
             public void onClick(View v) {
                 getAllImagesInAlbum(positionPlusOne);
                 Intent intent = new Intent(viewGroup.getContext(), PhotosActivity.class);
-                intent.putExtra("photos", (Serializable) photosAfterFilterAccordingAlbum);
+                intent.putExtra("photos", (Serializable) mPhotosAfterFilterAccordingAlbum);
                 viewGroup.getContext().startActivity(intent);
 
             }
@@ -70,19 +70,19 @@ public class AlbumsAdapter extends BaseAdapter {
 
     private void getAllImagesInAlbum(int position) {
 
-        for (PhotosData photosData : photosDataResponse) {
+        for (PhotosData photosData : mPhotosDataResponse) {
             if (photosData.getAlbumId() == position) {
-                photosAfterFilterAccordingAlbum.add(photosData);
+                mPhotosAfterFilterAccordingAlbum.add(photosData);
             }
         }
     }
 
     private int getNumberOfAlbums() {
-        for (PhotosData photosData : photosDataResponse) {
-            if (photosData.getAlbumId() >= numberOfAlbum) {
-                numberOfAlbum = photosData.getAlbumId();
+        for (PhotosData photosData : mPhotosDataResponse) {
+            if (photosData.getAlbumId() >= mNumberOfAlbum) {
+                mNumberOfAlbum = photosData.getAlbumId();
             }
         }
-        return numberOfAlbum;
+        return mNumberOfAlbum;
     }
 }

@@ -16,42 +16,42 @@ import java.io.Serializable;
 import java.util.List;
 
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.MyViewHolder> {
-    private List<PhotosData> photosData;
-    private Context context;
+    private List<PhotosData> mPhotosData;
+    private Context mContext;
 
-    PhotosAdapter(List<PhotosData> usersData) {
-        this.photosData = usersData;
+    PhotosAdapter(List<PhotosData> photosData) {
+        mPhotosData = photosData;
     }
 
     @NonNull
     @Override
     public PhotosAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.photos_recycle_view, viewGroup, false);
-        this.context = viewGroup.getContext();
+        this.mContext = viewGroup.getContext();
         return new PhotosAdapter.MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PhotosAdapter.MyViewHolder viewHolder, int position) {
-        final PhotosData photosData = this.photosData.get(position);
+        final PhotosData photosData = this.mPhotosData.get(position);
 
         viewHolder.photoTitle.setText(photosData.getTitle());
-        Glide.with(context).load(photosData.getThumbnailUrl()).into(viewHolder.photo);
+        Glide.with(mContext).load(photosData.getThumbnailUrl()).into(viewHolder.photo);
 
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, FullPhotoActivity.class);
+                Intent intent = new Intent(mContext, FullPhotoActivity.class);
                 intent.putExtra("imagefill", (Serializable) photosData.getUrl());
-                context.startActivity(intent);
+                mContext.startActivity(intent);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return photosData.size();
+        return mPhotosData.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

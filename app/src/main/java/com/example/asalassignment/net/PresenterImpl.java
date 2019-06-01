@@ -16,17 +16,17 @@ import retrofit2.Response;
 
 public class PresenterImpl implements Presenter {
     private static final String TAG = PresenterImpl.class.getSimpleName();
-    private PhotosUsersList photosUsersList;
-    private List<PhotosData> photosDataResponse;
-    private List<UsersData> userDataResponse;
-    private ViewInterface usersView;
+    private PhotosUsersList mPhotosUsersList;
+    private List<PhotosData> mPhotosDataResponse;
+    private List<UsersData> mUserDataResponse;
+    private ViewInterface mUsersView;
 
     @Override
     public void initPresenter(ViewInterface usersView) {
-        photosUsersList = new PhotosUsersList();
-        photosDataResponse = new ArrayList<>();
-        userDataResponse = new ArrayList<>();
-        this.usersView = usersView;
+        mPhotosUsersList = new PhotosUsersList();
+        mPhotosDataResponse = new ArrayList<>();
+        mUserDataResponse = new ArrayList<>();
+        mUsersView = usersView;
         getUserData();
         getPhotosData();
 
@@ -34,7 +34,7 @@ public class PresenterImpl implements Presenter {
     }
 
     private void getPhotosData() {
-        Call<List<PhotosData>> call = photosUsersList.getPhotosList();
+        Call<List<PhotosData>> call = mPhotosUsersList.getPhotosList();
         call.enqueue(new Callback<List<PhotosData>>() {
             @Override
             public void onResponse(@NonNull Call<List<PhotosData>> call, @NonNull Response<List<PhotosData>> response) {
@@ -43,9 +43,9 @@ public class PresenterImpl implements Presenter {
                         Log.v(TAG, "on response null");
 
                     } else {
-                        photosDataResponse = response.body();
-                        usersView.hideProgress();
-                        usersView.initTheTabsInViewPager(photosDataResponse, userDataResponse);
+                        mPhotosDataResponse = response.body();
+                        mUsersView.hideProgress();
+                        mUsersView.initTheTabsInViewPager(mPhotosDataResponse, mUserDataResponse);
                     }
                 }
             }
@@ -61,7 +61,7 @@ public class PresenterImpl implements Presenter {
     }
 
     private void getUserData() {
-        Call<List<UsersData>> call = photosUsersList.getUsersList();
+        Call<List<UsersData>> call = mPhotosUsersList.getUsersList();
         call.enqueue(new Callback<List<UsersData>>() {
             @Override
             public void onResponse(@NonNull Call<List<UsersData>> call, @NonNull Response<List<UsersData>> response) {
@@ -71,7 +71,7 @@ public class PresenterImpl implements Presenter {
 
                     } else {
                         Log.v(TAG, "Success" + response.body());
-                        userDataResponse = response.body();
+                        mUserDataResponse = response.body();
                     }
                 }
 

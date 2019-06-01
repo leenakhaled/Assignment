@@ -14,14 +14,14 @@ import java.util.List;
 
 public class AlbumsFragment extends Fragment {
 
-    List<PhotosData> photosResponse;
+    List<PhotosData> mPhotosResponse;
 
     public AlbumsFragment() {
     }
 
     @SuppressLint("ValidFragment")
     public AlbumsFragment(List<PhotosData> photosResponse) {
-        this.photosResponse = photosResponse;
+        mPhotosResponse = photosResponse;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class AlbumsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_albums, viewGroup, false);
         GridView albumGridView = view.findViewById(R.id.album);
 
-        AlbumsAdapter albumsAdapter = new AlbumsAdapter(getActivity(), photosResponse);
+        AlbumsAdapter albumsAdapter = new AlbumsAdapter(getActivity(), mPhotosResponse);
         albumGridView.setAdapter(albumsAdapter);
 
         return view;

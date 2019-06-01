@@ -7,22 +7,22 @@ import retrofit2.Call;
 
 
 class PhotosUsersList {
-    private PhotosApi photosApi;
-    private UsersApi usersApi;
+    private PhotosApi mPhotosApi;
+    private UsersApi mUsersApi;
 
     PhotosUsersList() {
-        photosApi = RetrofitClient.getsInstance().getRetrofit().create(PhotosApi.class);
-        usersApi = RetrofitClient.getsInstance().getRetrofit().create(UsersApi.class);
+        mPhotosApi = RetrofitClient.getsInstance().getRetrofit().create(PhotosApi.class);
+        mUsersApi = RetrofitClient.getsInstance().getRetrofit().create(UsersApi.class);
 
     }
 
     Call<List<PhotosData>> getPhotosList() {
-        return photosApi.getPhotosList();
+        return mPhotosApi.getPhotosList();
     }
 
 
     Call<List<UsersData>> getUsersList() {
-        return usersApi.getUsersList();
+        return mUsersApi.getUsersList();
     }
 
 

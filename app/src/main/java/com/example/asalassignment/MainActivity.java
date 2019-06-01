@@ -14,7 +14,7 @@ import com.example.asalassignment.presenter.Presenter;
 import com.example.asalassignment.users.view.UsersFragment;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements UsersView {
+public class MainActivity extends AppCompatActivity implements viewInterface {
     List<UsersData> userDataResponse; // To send it to users fragment
     private List<PhotosData> photosDataResponse;// To send it to photos fragment
     private ProgressBar mProgressBar;

@@ -3,7 +3,7 @@ package com.example.asalassignment.presenter;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.asalassignment.UsersView;
+import com.example.asalassignment.viewInterface;
 import com.example.asalassignment.photos.model.PhotosData;
 import com.example.asalassignment.users.model.UsersData;
 
@@ -19,10 +19,10 @@ public class PresenterImpl implements Presenter {
     private PhotosUsersList photosUsersList;
     private List<PhotosData> photosDataResponse;
     private List<UsersData> userDataResponse;
-    private UsersView usersView;
+    private viewInterface usersView;
 
     @Override
-    public void initPresenter(UsersView usersView) {
+    public void initPresenter(viewInterface usersView) {
         photosUsersList = new PhotosUsersList();
         photosDataResponse = new ArrayList<>();
         userDataResponse = new ArrayList<>();
@@ -46,7 +46,6 @@ public class PresenterImpl implements Presenter {
                         photosDataResponse = response.body();
                         usersView.hideProgress();
                         usersView.initTheTabsInViewPager(photosDataResponse, userDataResponse);
-
                     }
                 }
             }

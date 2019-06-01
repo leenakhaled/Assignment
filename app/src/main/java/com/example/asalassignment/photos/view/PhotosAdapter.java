@@ -72,7 +72,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.MyViewHold
             super(view);
             photoTitle = view.findViewById(R.id.photo_title);
             photoId = view.findViewById(R.id.photo_id);
-         //   email = view.findViewById(R.id.email);
+         //   email = viewInterface.findViewById(R.id.email);
         }
     }
 }

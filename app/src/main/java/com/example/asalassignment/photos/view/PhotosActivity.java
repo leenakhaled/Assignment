@@ -6,17 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import com.example.asalassignment.R;
 import com.example.asalassignment.photos.model.PhotosData;
-
 import java.util.List;
 
 public class PhotosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.photos_recycle_view);
+        setContentView(R.layout.activty_photos);
         RecyclerView recyclerView = findViewById(R.id.photos_recycle_view);
         recyclerView.setHasFixedSize(true);
 

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.example.asalassignment.R;
 import com.example.asalassignment.photos.model.PhotosData;
@@ -27,7 +26,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.MyViewHold
     @NonNull
     @Override
     public PhotosAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.photos_item, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.photos_recycle_view, viewGroup, false);
         this.context = viewGroup.getContext();
         return new PhotosAdapter.MyViewHolder(view);
     }

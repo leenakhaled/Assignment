@@ -1,4 +1,4 @@
-package com.example.asalassignment.presenter;
+package com.example.asalassignment.net;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

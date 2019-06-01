@@ -1,4 +1,4 @@
-package com.example.asalassignment.presenter;
+package com.example.asalassignment.net;
 
 import android.support.annotation.NonNull;
 import android.util.Log;

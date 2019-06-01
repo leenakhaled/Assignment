@@ -1,4 +1,4 @@
-package com.example.asalassignment.presenter;
+package com.example.asalassignment.net;
 
 import com.example.asalassignment.ViewInterface;
 

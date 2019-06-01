@@ -1,10 +1,9 @@
-package com.example.asalassignment;
+package com.example.asalassignment.presenter;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.example.asalassignment.presenter.PhotosUsersList;
-import com.example.asalassignment.presenter.Presenter;
+import com.example.asalassignment.UsersView;
 import com.example.asalassignment.photos.model.PhotosData;
 import com.example.asalassignment.users.model.UsersData;
 

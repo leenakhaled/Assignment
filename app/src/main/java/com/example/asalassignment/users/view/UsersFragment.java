@@ -24,16 +24,16 @@ public class UsersFragment extends Fragment {
 
     }
 
-    public UsersFragment(List<UsersData> body) {
-        usersDataList = body;
+    public UsersFragment(List<UsersData> usersDataList) {
+        this.usersDataList = usersDataList;
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_users, container, false);
+        View root = inflater.inflate(R.layout.fragment_users, container, false);
 
         inflater.inflate(R.layout.fragment_users, container, false);
-        RecyclerView recyclerView = rootView.findViewById(R.id.users_recycle_view);
+        RecyclerView recyclerView = root.findViewById(R.id.users_recycle_view);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -45,7 +45,7 @@ public class UsersFragment extends Fragment {
         }
         UsersListAdapter usersListAdapter = new UsersListAdapter(usersDataList);
         recyclerView.setAdapter(usersListAdapter);
-        return rootView;
+        return root;
     }
 
 }

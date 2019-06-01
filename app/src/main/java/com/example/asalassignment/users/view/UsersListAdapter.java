@@ -10,14 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.asalassignment.R;
 import com.example.asalassignment.users.model.UsersData;
 
 import java.util.List;
 
 public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyViewHolder> {
-    private static final String TAG = UsersListAdapter.class.getSimpleName();
     private List<UsersData> usersData;
     private Context context;
 
@@ -42,22 +40,26 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailsActivity.class);
-                intent.putExtra("email", UsersListAdapter.this.usersData.get(i).getEmail());
-                intent.putExtra("phone", UsersListAdapter.this.usersData.get(i).getPhone());
-                intent.putExtra("name", UsersListAdapter.this.usersData.get(i).getName());
-                intent.putExtra("userName", UsersListAdapter.this.usersData.get(i).getUsername());
-                intent.putExtra("website", UsersListAdapter.this.usersData.get(i).getWebsite());
-                intent.putExtra("city", UsersListAdapter.this.usersData.get(i).getAddress().getCity());
-                intent.putExtra("street", UsersListAdapter.this.usersData.get(i).getAddress().getStreet());
-                intent.putExtra("suite", UsersListAdapter.this.usersData.get(i).getAddress().getSuite());
-                intent.putExtra("lat", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLat());
-                intent.putExtra("lng", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLng());
-                intent.putExtra("companyName", UsersListAdapter.this.usersData.get(i).getCompany().getName());
-                intent.putExtra("companyCatchPhrase", UsersListAdapter.this.usersData.get(i).getCompany().getCatchPhrase());
-                intent.putExtra("companyBs", UsersListAdapter.this.usersData.get(i).getCompany().getBs());
+                fillTheDataInIntent(intent, i);
                 context.startActivity(intent);
             }
         });
+    }
+
+    private void fillTheDataInIntent(Intent intent, @SuppressLint("RecyclerView") int i) {
+        intent.putExtra("email", UsersListAdapter.this.usersData.get(i).getEmail());
+        intent.putExtra("phone", UsersListAdapter.this.usersData.get(i).getPhone());
+        intent.putExtra("name", UsersListAdapter.this.usersData.get(i).getName());
+        intent.putExtra("userName", UsersListAdapter.this.usersData.get(i).getUsername());
+        intent.putExtra("website", UsersListAdapter.this.usersData.get(i).getWebsite());
+        intent.putExtra("city", UsersListAdapter.this.usersData.get(i).getAddress().getCity());
+        intent.putExtra("street", UsersListAdapter.this.usersData.get(i).getAddress().getStreet());
+        intent.putExtra("suite", UsersListAdapter.this.usersData.get(i).getAddress().getSuite());
+        intent.putExtra("lat", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLat());
+        intent.putExtra("lng", UsersListAdapter.this.usersData.get(i).getAddress().getGeo().getLng());
+        intent.putExtra("companyName", UsersListAdapter.this.usersData.get(i).getCompany().getName());
+        intent.putExtra("companyCatchPhrase", UsersListAdapter.this.usersData.get(i).getCompany().getCatchPhrase());
+        intent.putExtra("companyBs", UsersListAdapter.this.usersData.get(i).getCompany().getBs());
     }
 
     @Override
@@ -67,12 +69,12 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.MyVi
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView usersName, email;
-        ImageView imageView;
+        ImageView userImage;
 
         MyViewHolder(View view) {
             super(view);
             usersName = view.findViewById(R.id.user_name);
-            imageView = view.findViewById(R.id.user_image);
+            userImage = view.findViewById(R.id.user_image);
             email = view.findViewById(R.id.email);
         }
     }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import com.example.asalassignment.photos.model.PhotosData;
 import com.example.asalassignment.photos.view.AlbumsFragment;
+import com.example.asalassignment.presenter.PresenterImpl;
 import com.example.asalassignment.users.model.UsersData;
 import com.example.asalassignment.presenter.Presenter;
 import com.example.asalassignment.users.view.UsersFragment;

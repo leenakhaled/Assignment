@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".users.view.DetailsActivity" android:configChanges="orientation|screenSize|keyboardHidden" android:parentActivityName=".MainActivity">
+        <activity android:name=".users.view.DetailsActivity"   android:label="User Details"
+            android:configChanges="orientation|screenSize|keyboardHidden" android:parentActivityName=".MainActivity">
 
     </activity>
         <activity android:name=".photos.view.PhotosActivity" android:configChanges="orientation|screenSize|keyboardHidden">

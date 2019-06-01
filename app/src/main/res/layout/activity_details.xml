@@ -3,118 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:padding="5dp"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+
+    android:padding="5dp">
 
     <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/photo_id"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_weight="1"
         android:layout_gravity="center"
-        android:id="@+id/photo_id"
+        android:layout_weight="1"
         android:src="@drawable/user"
-        app:civ_shadow_radius="10"
-        />
-
+        app:civ_shadow_radius="10" />
 
 
     <TextView
-        android:id="@+id/user_name"
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="5dp"
-        android:textSize="16sp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:textStyle="italic|bold"
-        android:layout_weight="1"
-        />
+        android:textSize="16sp"
+        android:textStyle="italic|bold" />
 
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:layout_marginTop="10dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
-        <!--<TextView-->
-            <!--android:id="@+id/phone"-->
-            <!--android:textSize="16sp"-->
-            <!--android:fontFamily="sans-serif"-->
-            <!--android:gravity="center"-->
-            <!--android:textStyle="italic"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--tools:ignore="NestedWeights" />-->
 
         <TextView
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_weight="1"
             android:fontFamily="sans-serif"
             android:gravity="center"
+            android:textSize="16sp"
             android:textStyle="italic"
-            android:layout_weight="1"
-           />
+            tools:ignore="NestedWeights" />
 
         <TextView
             android:id="@+id/website"
-            android:textSize="16sp"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:textStyle="italic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            />
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
+
     <View
         android:id="@+id/view1"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/header"
         android:layout_marginTop="20dp"
         android:background="#73CEC3" />
+
     <LinearLayout
+        android:id="@+id/usersSection"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/usersSection"
-        android:minHeight="140dp"
-        android:layout_marginTop="30dp"
-        android:layout_margin="20dp"
         android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:minHeight="140dp"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            tools:ignore="NestedWeights"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal"
+            tools:ignore="NestedWeights">
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textStyle="bold"
-                android:textSize="14dp"
+                android:text="@string/city"
                 android:textColor="@color/cardview_dark_background"
-                android:text="@string/city" />
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-               />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -128,17 +116,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textStyle="bold"
-                android:textSize="14dp"
+                android:text="@string/street"
                 android:textColor="@color/cardview_dark_background"
-                android:text="@string/street" />
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/street"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-              />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -153,18 +141,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/suite"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:textSize="14dp"
-                android:textColor="@color/cardview_dark_background"/>
+                tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/suite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -176,19 +165,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textStyle="bold"
-                android:textSize="14dp"
+                android:text="@string/lat"
                 android:textColor="@color/cardview_dark_background"
-                android:text="@string/lat" />
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/lat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -201,9 +191,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/lng"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:textSize="14dp"
-                android:textColor="@color/cardview_dark_background"/>
+                tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/lng"
@@ -220,42 +211,41 @@
         android:id="@+id/view2"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_below="@+id/usersSection"
         android:layout_marginTop="20dp"
         android:background="#73CEC3" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:minHeight="140dp"
-        android:layout_marginTop="30dp"
-        android:layout_margin="20dp"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            tools:ignore="NestedWeights"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
+            android:orientation="horizontal"
+            tools:ignore="NestedWeights">
 
             <TextView
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:textColor="@color/cardview_dark_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/company"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/companyName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -266,21 +256,20 @@
             android:orientation="horizontal">
 
             <TextView
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:textColor="@color/cardview_dark_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/company_catch_phrase"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/companyCathPhrase"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -291,32 +280,25 @@
             android:orientation="horizontal">
 
             <TextView
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:textColor="@color/cardview_dark_background"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/company_bs"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 tools:ignore="PrivateResource" />
 
             <TextView
                 android:id="@+id/companyBs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <!--<TextView-->
-        <!--android:id="@+id/phone"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAlignment="textEnd"-->
-        <!--android:layout_gravity="end" />-->
 
 </LinearLayout>
